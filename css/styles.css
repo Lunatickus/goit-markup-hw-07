@@ -262,7 +262,7 @@ button {
     position: relative;
 
     display: flex;
-    height: 796px;
+    height: 100%;
     flex-direction: column;
     justify-content: space-between;
 
