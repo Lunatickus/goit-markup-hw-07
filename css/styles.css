@@ -524,7 +524,7 @@ button {
 /* FEATURES SECTION */
 
 .features-title {
-    font-weight: 500;
+    font-weight: 700;
     font-size: 36px;
     line-height: 1.11;
     letter-spacing: 0.02em;
@@ -597,6 +597,7 @@ button {
     .features-title {
         font-size: 20px;
         line-height: 1.2;
+        font-weight: 500;
     }
 }
 
@@ -840,10 +841,6 @@ button {
     text-align: center;
 }
 
-.footer-content {
-    margin-bottom: 72px;
-}
-
 .footer-text {
     width: 268px;
 }
@@ -851,12 +848,12 @@ button {
 .footer-container {
     display: flex;
     flex-wrap: wrap;
+    gap: 72px 24px;
     justify-content: center;
 }
 
 .footer-social {
     text-align: center;
-    margin-bottom: 72px;
 }
 
 .footer-social-text {
@@ -965,7 +962,6 @@ button {
 @media screen and (min-width: 768px) {
     .footer-container {
         flex-wrap: wrap;
-        gap: 24px;
         justify-content: flex-start;
         align-items: baseline;
     }
@@ -976,10 +972,6 @@ button {
 
     .footer-logo {
         text-align: start;
-    }
-
-    .footer-content {
-        margin-bottom: 72px;
     }
 
     .footer-text {
