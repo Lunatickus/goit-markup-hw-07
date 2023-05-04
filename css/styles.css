@@ -73,27 +73,23 @@ button {
 }
 
 .container {
+    min-width: 320px;
+    max-width: 426px;
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
 }
 
-@media screen and (min-width: 428px) {
-    .container{
-        width: 426px;
-        margin-left: auto;
-        margin-right: auto;
-    }  
-}
-
 @media screen and (min-width: 768px) {
     .container {
-        width: 766px;
+        max-width: 766px;
     }
 }
 
 @media screen and (min-width: 1158px) {
     .container {
-        width: 1158px;
+        max-width: 1158px;
     }
 }
 
@@ -236,39 +232,41 @@ button {
     top: 0;
     left: 0;
     z-index: 100;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 
     background-color: var(--primary-white-color);
     box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 
     0px 1px 1px rgba(46, 47, 66, 0.16), 
     0px 1px 6px rgba(46, 47, 66, 0.08);
 
-    opacity: 0;
+    transform: translateX(100%);
     visibility: hidden;
     pointer-events: none;
 
-    transition: opacity var(--transition-dur-and-func),
+    transition: transform var(--transition-dur-and-func),
     visibility var(--transition-dur-and-func);
 }
 
 .mobile-menu.is-open {
-    opacity: 1;
+    transform: translateX(0);
     visibility: visible;
     pointer-events: all;
 }
 
 .menu-container {
-    position: relative;
-
     display: flex;
-    height: 100%;
     flex-direction: column;
-    justify-content: space-between;
+    height: 100%;
 
     padding-top: 80px;
     padding-left: 40px;
     padding-bottom: 40px;
+    padding-right: 30px;
+}
+
+.mobile-menu-nav {
+    margin-bottom: auto;
 }
 
 .mobile-close-btn {
@@ -290,6 +288,7 @@ button {
     transition: background-color var(--transition-dur-and-func),
     border-color var(--transition-dur-and-func);
 }
+
 
 .mobile-nav-link {
     font-weight: 700;
@@ -399,19 +398,15 @@ button {
     background-position: center;
 }
 
-/* @media screen and (max-width: 767px) {
-    @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-        .hero {
-            background-image: linear-gradient(
-                rgba(46, 47, 66, 0.7),
-                rgba(46, 47, 66, 0.7)
-            ),
-            url(../images/hero/hero-img-mobile@2x.jpg);
-        }
+@media screen and (min-width:320px) and (max-width: 427px) {
+    .hero {
+        background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+    ), 
+    url(../images/hero/hero-img-mobile.jpg);
     }
-} */
+}
 
 @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
@@ -424,6 +419,54 @@ button {
             url(../images/hero/hero-img-mobile@2x.jpg);
         }
     }
+
+@media screen and (min-width: 428px) {
+    .hero {
+        max-width: 768px;
+        background-image: linear-gradient(
+            rgba(46, 47, 66, 0.7),
+            rgba(46, 47, 66, 0.7)
+        ), 
+        url(../images/hero/hero-img-tablet.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+        .hero {
+            background-image: linear-gradient(
+                rgba(46, 47, 66, 0.7),
+                rgba(46, 47, 66, 0.7)
+            ),
+            url(../images/hero/hero-img-tablet@2x.jpg);
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .hero {
+        max-width: 1440px;
+        padding-top: 188px;
+        padding-bottom: 188px;
+        background-image: linear-gradient(
+            rgba(46, 47, 66, 0.7),
+            rgba(46, 47, 66, 0.7)
+        ), 
+        url(../images/hero/hero-img-desktop.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+        .hero {
+            background-image: linear-gradient(
+                rgba(46, 47, 66, 0.7),
+                rgba(46, 47, 66, 0.7)
+            ),
+            url(../images/hero/hero-img-desktop@2x.jpg);
+        }
+    }
+}
 
 .hero-head {
     font-weight: 700;
@@ -461,27 +504,6 @@ button {
 }
 
 @media screen and (min-width: 768px) {
-    .hero {
-        max-width: 768px;
-        background-image: linear-gradient(
-            rgba(46, 47, 66, 0.7),
-            rgba(46, 47, 66, 0.7)
-        ), 
-        url(../images/hero/hero-img-tablet.jpg);
-    }
-
-    @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-        .hero {
-            background-image: linear-gradient(
-                rgba(46, 47, 66, 0.7),
-                rgba(46, 47, 66, 0.7)
-            ),
-            url(../images/hero/hero-img-tablet@2x.jpg);
-        }
-    }
-
     .hero-head {
         font-size: 56px;
         line-height: 1.07;
@@ -492,29 +514,6 @@ button {
 }
 
 @media screen and (min-width: 1158px) {
-    .hero {
-        max-width: 1440px;
-        padding-top: 188px;
-        padding-bottom: 188px;
-        background-image: linear-gradient(
-            rgba(46, 47, 66, 0.7),
-            rgba(46, 47, 66, 0.7)
-        ), 
-        url(../images/hero/hero-img-desktop.jpg);
-    }
-
-    @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-        .hero {
-            background-image: linear-gradient(
-                rgba(46, 47, 66, 0.7),
-                rgba(46, 47, 66, 0.7)
-            ),
-            url(../images/hero/hero-img-desktop@2x.jpg);
-        }
-    }
-
     .hero-head {
         margin-bottom: 48px;
     }
@@ -539,8 +538,10 @@ button {
     font-weight: 500;
 }
 
-.features-item {
-    margin-bottom: 72px;
+.features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 72px 24px;
 }
 
 .features-item:last-child {
@@ -564,15 +565,8 @@ button {
 }
 
 @media screen and (min-width: 768px) {
-    .features-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 72px 24px;
-    }
-
     .features-item {
         width: calc((100% - 24px) / 2);
-        margin-bottom: 0;
     }
 
     .features-title {
@@ -581,11 +575,6 @@ button {
 }
 
 @media screen and (min-width: 1158px) {
-    .features-list {
-        flex-wrap: nowrap;
-        gap: 24px;
-    }
-
     .features-text {
         font-weight: 400;
     }
@@ -656,22 +645,18 @@ button {
 .team-list {
     display: flex;
     flex-wrap: wrap;
+    gap: 72px;
     justify-content: center;
 }
 
 .team-item {
     width: 264px;
-    margin-bottom: 72px;
 
     background-color: var(--primary-white-color);
     border-radius: 0px 0px 4px 4px;
     box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 
     0px 1px 1px rgba(46, 47, 66, 0.16), 
     0px 2px 1px rgba(46, 47, 66, 0.08);
-}
-
-.team-item:last-child {
-    margin-bottom: 0;
 }
 
 .team-item-content-wrapper {
@@ -721,7 +706,7 @@ button {
 
 @media screen and (min-width: 428px) and (max-width: 1158px) {
     .team-container {
-        max-width: 582px;
+        width: 582px;
     }
 }
 
@@ -729,16 +714,9 @@ button {
     .team-list {
         gap: 64px 24px;
     }
-
-    .team-item {
-        margin-bottom: 0;
-    }
 }
 
 @media screen and (min-width: 1158px) {
-    .team-list {
-        flex-wrap: nowrap;
-    }
     
     .team-item {
         width: calc((100% - 3 * 24px) / 4);
@@ -789,7 +767,7 @@ button {
 
 @media screen and (min-width: 428px) and (max-width: 1158px) {
     .customers-container {
-        max-width: 582px;
+        width: 582px;
     }
 }
 
@@ -806,11 +784,6 @@ button {
 @media screen and (min-width: 1158px) {
     .customers-list-item {
         width: calc((100% - 5 * 24px) / 6);
-    }
-
-    .customers-list {
-        gap: 24px;
-        flex-wrap: nowrap;
     }
 }
 
@@ -955,7 +928,7 @@ button {
 
 @media screen and (min-width: 428px) and (max-width: 1158px) {
     .footer-container {
-        max-width: 582px;
+        width: 582px;
     }
 }
 
